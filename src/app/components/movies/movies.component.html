@@ -11,14 +11,15 @@
                         <input type="text" class="form-control searchdesign" placeholder="Search for movies..." [(ngModel)]="searchStr"
                             name="searchStr" (keyup.enter)="searchMovies()">
                         <span class="input-group-btn">
-                            <button class="btn btn-primary btnDesign" type="button" (click)="searchMovies()">Go!</button>
+                            <button class="btn btn-primary btnDesign" type="button" (click)="searchMovies()">Search!</button>
                         </span>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </form>
 
+    <!-- Search Results -->
     <ng-container *ngIf="searchRes">
         <app-skeleton *ngIf="loader"></app-skeleton>
         <div class="row" *ngIf="!loader">
@@ -42,6 +43,8 @@
         </div>
     </ng-container>
 
+    <hr>
+
     <app-skeleton *ngIf="loader"></app-skeleton>
     <div class="row" *ngIf="!loader">
         <div class="col-md-2 listing__items" *ngFor="let movie of topRated | slice:0:18">
@@ -62,7 +65,7 @@
             </div>
         </div>
     </div>
-    
+
     <mat-paginator [length]="totalResults" [pageSize]="20" (page)="changePage($event)"></mat-paginator>
-    
+
 </div>

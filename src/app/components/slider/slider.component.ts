@@ -9,8 +9,8 @@ import { delay } from 'rxjs/internal/operators/delay';
   styleUrls: ['./slider.component.scss'],
   animations: [
     trigger('fade', [
-      transition('void => *', [style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]),
-      transition('* => void', [style({ opacity: 1 }), animate('300ms', style({ opacity: 0 }))]),
+      transition('void => *', [style({ opacity: 0 }), animate('600ms', style({ opacity: 1 }))]),
+      transition('* => void', [style({ opacity: 1 }), animate('600ms', style({ opacity: 0 }))]),
     ])
   ]
 })
@@ -40,7 +40,7 @@ export class SliderComponent implements OnInit {
   sliderTimer() {
     setInterval(() => {
       this.current = ++this.current % this.movies_data.length;
-    }, 5000);
+    }, 8000);
   }
 
 }

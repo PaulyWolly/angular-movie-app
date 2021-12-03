@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/service/movies.service';
 import { delay } from 'rxjs/internal/operators/delay';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-movies',
@@ -15,6 +16,7 @@ export class MoviesComponent implements OnInit {
   total_results: any;
   searchRes: any;
   searchStr: string;
+  results: any;
 
   constructor(private movieService: MoviesService) {
     this.responsiveOptions = [
@@ -41,10 +43,13 @@ export class MoviesComponent implements OnInit {
   }
 
   getTopRatedMovies(page: number) {
-    this.movieService.getTopRatedMovies(page).pipe(delay(2000)).subscribe((res: any) => {
+    this.results = this.movieService.getTopRatedMovies(page).pipe(delay(2000)).subscribe((res: any) => {
       this.topRated = res.results;
       this.totalResults = res.total_results;
       this.loader = false;
+
+      console.log('results: ' + this.results);
+
     },
     error => console.log(error));
   }

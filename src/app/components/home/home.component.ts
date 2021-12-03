@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit() {
     this.trendingMovies(1);
+
     this.tvShow(1);
   }
 
