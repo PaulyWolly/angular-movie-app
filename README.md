@@ -39,3 +39,4 @@ ng serve and go to http://localhost:4200/
 ## Become a contributor ?
 
 Find a bug, contribute some code or suggest ideas ? don't hesitate ! Create a pull request or an issue.
+# angular-movie-app
